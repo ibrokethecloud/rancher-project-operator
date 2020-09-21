@@ -1,0 +1,190 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.2.5
+  creationTimestamp: null
+  name: projects.management.cattle.io
+spec:
+  group: management.cattle.io
+  names:
+    kind: Project
+    listKind: ProjectList
+    plural: projects
+    singular: project
+  scope: Cluster
+  validation:
+    openAPIV3Schema:
+      description: Project is the Schema for the projects API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: ProjectSpec defines the desired state of Project
+          properties:
+            containerDefaultResourceLimit:
+              properties:
+                limitsCpu:
+                  type: string
+                limitsMemory:
+                  type: string
+                requestsCpu:
+                  type: string
+                requestsMemory:
+                  type: string
+              type: object
+            description:
+              type: string
+            displayName:
+              type: string
+            enableProjectMonitoring:
+              type: boolean
+            labels:
+              additionalProperties:
+                type: string
+              type: object
+            monitoringInput:
+              properties:
+                answers:
+                  additionalProperties:
+                    type: string
+                  type: object
+                version:
+                  type: string
+              type: object
+            namespaceDefaultResourceQuota:
+              properties:
+                limit:
+                  properties:
+                    configMaps:
+                      type: string
+                    limitsCpu:
+                      type: string
+                    limitsMemory:
+                      type: string
+                    persistentVolumeClaims:
+                      type: string
+                    pods:
+                      type: string
+                    replicationControllers:
+                      type: string
+                    requestsCpu:
+                      type: string
+                    requestsMemory:
+                      type: string
+                    requestsStorage:
+                      type: string
+                    secrets:
+                      type: string
+                    services:
+                      type: string
+                    servicesLoadBalancers:
+                      type: string
+                    servicesNodePorts:
+                      type: string
+                  type: object
+              type: object
+            podSecurityPolicyTemplateId:
+              type: string
+            resourceQuota:
+              properties:
+                limit:
+                  properties:
+                    configMaps:
+                      type: string
+                    limitsCpu:
+                      type: string
+                    limitsMemory:
+                      type: string
+                    persistentVolumeClaims:
+                      type: string
+                    pods:
+                      type: string
+                    replicationControllers:
+                      type: string
+                    requestsCpu:
+                      type: string
+                    requestsMemory:
+                      type: string
+                    requestsStorage:
+                      type: string
+                    secrets:
+                      type: string
+                    services:
+                      type: string
+                    servicesLoadBalancers:
+                      type: string
+                    servicesNodePorts:
+                      type: string
+                  type: object
+                usedLimit:
+                  properties:
+                    configMaps:
+                      type: string
+                    limitsCpu:
+                      type: string
+                    limitsMemory:
+                      type: string
+                    persistentVolumeClaims:
+                      type: string
+                    pods:
+                      type: string
+                    replicationControllers:
+                      type: string
+                    requestsCpu:
+                      type: string
+                    requestsMemory:
+                      type: string
+                    requestsStorage:
+                      type: string
+                    secrets:
+                      type: string
+                    services:
+                      type: string
+                    servicesLoadBalancers:
+                      type: string
+                    servicesNodePorts:
+                      type: string
+                  type: object
+              type: object
+          required:
+          - displayName
+          type: object
+        status:
+          description: ProjectStatus defines the observed state of Project
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            status:
+              type: string
+          required:
+          - id
+          - state
+          - status
+          type: object
+      type: object
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

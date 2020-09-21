@@ -1,0 +1,8 @@
+apiVersion: management.cattle.io/v1alpha1
+kind: ProjectRoleTemplateBinding
+metadata:
+  name: demo-project-sample-prtb
+spec:
+  userName: test
+  projectName: demo
+  roleTemplateName: project-member

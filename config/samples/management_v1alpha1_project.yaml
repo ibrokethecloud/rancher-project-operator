@@ -1,0 +1,7 @@
+apiVersion: management.cattle.io/v1alpha1
+kind: Project
+metadata:
+  name: project-sample
+spec:
+  # Add fields here
+  displayName: demo

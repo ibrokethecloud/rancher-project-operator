@@ -1,0 +1,13 @@
+domain: cattle.io
+repo: github.com/ibrokethecloud/rancher-project-operator
+resources:
+- group: management
+  kind: Project
+  version: v1alpha1
+- group: management
+  kind: ProjectNamespaceMapping
+  version: v1alpha1
+- group: management
+  kind: ProjectRoleTemplateBinding
+  version: v1alpha1
+version: "2"

@@ -1,0 +1,77 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.2.5
+  creationTimestamp: null
+  name: projectroletemplatebindings.management.cattle.io
+spec:
+  group: management.cattle.io
+  names:
+    kind: ProjectRoleTemplateBinding
+    listKind: ProjectRoleTemplateBindingList
+    plural: projectroletemplatebindings
+    singular: projectroletemplatebinding
+  scope: Cluster
+  validation:
+    openAPIV3Schema:
+      description: ProjectRoleTemplateBinding is the Schema for the projectroletemplatebindings
+        API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: ProjectRoleTemplateBindingSpec defines the desired state of
+            ProjectRoleTemplateBinding
+          properties:
+            groupName:
+              type: string
+            groupPrincipalName:
+              type: string
+            projectName:
+              type: string
+            roleTemplateName:
+              type: string
+            userName:
+              type: string
+            userPrincipalName:
+              type: string
+          required:
+          - projectName
+          type: object
+        status:
+          description: ProjectRoleTemplateBindingStatus defines the observed state
+            of ProjectRoleTemplateBinding
+          properties:
+            id:
+              type: string
+            status:
+              type: string
+          required:
+          - id
+          - status
+          type: object
+      type: object
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

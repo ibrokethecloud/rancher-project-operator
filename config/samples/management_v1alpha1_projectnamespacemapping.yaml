@@ -1,0 +1,9 @@
+apiVersion: management.cattle.io/v1alpha1
+kind: ProjectNamespaceMapping
+metadata:
+  name: demo-ns-mapping
+spec:
+  projectName: demo
+  namespaces:
+    - demo1
+    - demo2
